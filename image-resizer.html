@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Resize images online to your desired dimensions. Fully responsive and easy to use.">
+    <meta name="keywords" content="image resizer, resize images, online image tools, image optimization">
+    <meta name="author" content="Your Name">
+    <title>Online Image Resizer Tool</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Google AdSense -->
+     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4833180960471225"
+     crossorigin="anonymous"></script>
+    <style>
+        /* Global Styles */
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Header */
+        header {
+            background-color: #4CAF50;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
+
+        /* Main Content */
+        main {
+            padding: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Resizer Tool Section */
+        #resizer-tool {
+            background-color: #fff;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        #resizer-tool h2 {
+            margin-top: 0;
+            font-size: 2rem;
+            color: #4CAF50;
+        }
+
+        #resizer-tool input, #resizer-tool button {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        #resizer-tool input:focus {
+            border-color: #4CAF50;
+            outline: none;
+        }
+
+        #resizer-tool button {
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        #resizer-tool button:hover {
+            background-color: #45a049;
+        }
+
+        #output-container {
+            margin-top: 20px;
+            text-align: center;
+            display: none;
+        }
+
+        #output-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        #download-link {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        #download-link:hover {
+            background-color: #45a049;
+        }
+
+        /* Ad Space Section */
+        #ad-space {
+            margin-top: 30px;
+            text-align: center;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        #ad-space h3 {
+            margin-top: 0;
+            color: #4CAF50;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 15px;
+            margin-top: 30px;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 600px) {
+            header h1 {
+                font-size: 2rem;
+            }
+
+            #resizer-tool h2 {
+                font-size: 1.5rem;
+            }
+
+            #resizer-tool input, #resizer-tool button {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <h1>Online Image Resizer Tool</h1>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Resizer Tool Section -->
+        <section id="resizer-tool">
+            <h2>Resize Your Images</h2>
+            <input type="file" id="image-input" accept="image/*">
+            <input type="number" id="width-input" placeholder="Enter width (in pixels)">
+            <input type="number" id="height-input" placeholder="Enter height (in pixels)">
+            <button id="resize-btn">Resize Image</button>
+            <div id="output-container">
+                <img id="output-image" src="" alt="Resized Image">
+                <a id="download-link" href="" download="resized-image.jpg">Download Resized Image</a>
+            </div>
+        </section>
+
+        <!-- Ad Space -->
+        <section id="ad-space">
+            <h3>Advertisement</h3>
+            <!-- Google AdSense Ad Unit -->
+           <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-format="fluid"
+           data-ad-layout-key="-6t+ed+2i-1n-4w"
+           data-ad-client="ca-pub-4833180960471225"
+           data-ad-slot="7409289569"></ins>
+      <script>
+           (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Online Image Resizer Tool. All rights reserved. Made by Gaurav patel</p>
+    </footer>
+
+    <script>
+        // JavaScript Functionality
+        document.getElementById('resize-btn').addEventListener('click', function() {
+            const fileInput = document.getElementById('image-input');
+            const widthInput = document.getElementById('width-input');
+            const heightInput = document.getElementById('height-input');
+            const outputImage = document.getElementById('output-image');
+            const downloadLink = document.getElementById('download-link');
+            const outputContainer = document.getElementById('output-container');
+
+            if (fileInput.files.length === 0) {
+                alert('Please select an image to resize.');
+                return;
+            }
+
+            const width = parseInt(widthInput.value);
+            const height = parseInt(heightInput.value);
+
+            if (isNaN(width) || isNaN(height) || width <= 0 || height <= 0) {
+                alert('Please enter valid width and height values.');
+                return;
+            }
+
+            const file = fileInput.files[0];
+            const reader = new FileReader();
+
+            reader.onload = function(e) {
+                const img = new Image();
+                img.src = e.target.result;
+
+                img.onload = function() {
+                    const canvas = document.createElement('canvas');
+                    const ctx = canvas.getContext('2d');
+
+                    canvas.width = width;
+                    canvas.height = height;
+
+                    ctx.drawImage(img, 0, 0, width, height);
+
+                    canvas.toBlob(function(blob) {
+                        const resizedImageUrl = URL.createObjectURL(blob);
+                        outputImage.src = resizedImageUrl;
+                        outputContainer.style.display = 'block';
+
+                        downloadLink.href = resizedImageUrl;
+                        downloadLink.style.display = 'inline-block';
+                    }, 'image/jpeg', 1); // Quality set to 1 (highest)
+                };
+            };
+
+            reader.readAsDataURL(file);
+        });
+    </script>
+</body>
+</html>
