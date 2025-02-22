@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Your one-stop solution for all image and PDF tools. Compress, convert, edit, and optimize your files effortlessly.">
+    <meta name="keywords" content="image tools, PDF tools, compress images, compress PDF, online tools">
+    <meta name="author" content="Gaurav Patel">
+    <title>Tools Website - Image & PDF Tools</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Global Styles */
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Header */
+        header {
+            background-color: #4CAF50;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #333;
+            padding: 10px;
+        }
+
+        nav a {
+            color: #fff;
+            margin: 0 15px;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #4CAF50;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #4CAF50, #45a049);
+            color: #fff;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .hero h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Tools Section */
+        .tools {
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .tools h2 {
+            font-size: 2rem;
+            margin-bottom: 40px;
+            color: #4CAF50;
+        }
+
+        .tool-category {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .tool-card {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 250px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        .tool-card a {
+            display: block;
+            color: inherit; /* Inherit text color */
+            text-decoration: none; /* Remove underline */
+        }
+        
+        .tool-card a:hover {
+            color: inherit; /* Keep text color on hover */
+        }
+
+        .tool-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .tool-card i {
+            font-size: 2.5rem;
+            color: #4CAF50;
+            margin-bottom: 15px;
+        }
+
+        .tool-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .tool-card p {
+            font-size: 1rem;
+            color: #666;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2rem;
+            }
+
+            .hero h2 {
+                font-size: 2rem;
+            }
+
+            .tool-card {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            nav {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            nav a {
+                margin: 10px 0;
+            }
+
+            .hero h2 {
+                font-size: 1.8rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <h1>Tools Website</h1>
+    </header>
+
+    <!-- Navigation -->
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">Image Tools</a>
+        <a href="#">PDF Tools</a>
+        <a href="#">About</a>
+        <a href="#">Contact</a>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h2>Your One-Stop Solution for Image & PDF Tools</h2>
+        <p>Compress, convert, edit, and optimize your files effortlessly with our powerful online tools.</p>
+    </section>
+
+    <!-- Tools Section -->
+    <section class="tools">
+        <h2>Explore Our Tools</h2>
+        <div class="tool-category">
+            <!-- Image Tools -->
+          <section class="tools">
+              <h2>Explore Our Tools</h2>
+              <div class="tool-category">
+                  <!-- Image Tools -->
+                  <div class="tool-card">
+                      <a href="image-compressor.html">
+                          <i class="fas fa-image"></i>
+                          <h3>Image Compressor</h3>
+                          <p>Compress images without losing quality.</p>
+                      </a>
+                  </div>
+                  <div class="tool-card">
+                      <a href="image-converter.html">
+                          <i class="fas fa-file-image"></i>
+                          <h3>Image Converter</h3>
+                          <p>Convert images to different formats.</p>
+                      </a>
+                  </div>
+                  <div class="tool-card">
+                      <a href="image-resizer.html">
+                          <i class="fas fa-crop"></i>
+                          <h3>Image Resizer</h3>
+                          <p>Resize images to your desired dimensions.</p>
+                      </a>
+                  </div>
+          
+                  <!-- PDF Tools -->
+                  <div class="tool-card">
+                      <a href="pdf-compressor.html">
+                          <i class="fas fa-file-pdf"></i>
+                          <h3>PDF Compressor</h3>
+                          <p>Reduce the size of your PDF files.</p>
+                      </a>
+                  </div>
+                  <div class="tool-card">
+                      <a href="pdf-converter.html">
+                          <i class="fas fa-file-export"></i>
+                          <h3>PDF Converter</h3>
+                          <p>Convert PDFs to other formats.</p>
+                      </a>
+                  </div>
+                  <div class="tool-card">
+                      <a href="pdf-editor.html">
+                          <i class="fas fa-edit"></i>
+                          <h3>PDF Editor</h3>
+                          <p>Edit and annotate your PDFs online.</p>
+                      </a>
+                  </div>
+              </div>
+          </section>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2023 Tools Website. All rights reserved.</p>
+    </footer>
+</body>
+</html>
