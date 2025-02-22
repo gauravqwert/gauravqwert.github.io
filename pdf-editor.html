@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Edit PDF files online. Add text, images, and annotations to your PDFs. Fully responsive and easy to use.">
+    <meta name="keywords" content="PDF editor, edit PDF, add text to PDF, online PDF tools">
+    <meta name="author" content="Gaurav Patel">
+    <title>Online PDF Editor Tool</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4833180960471225"
+     crossorigin="anonymous"></script>
+    <style>
+        /* Global Styles */
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Header */
+        header {
+            background-color: #4CAF50;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
+
+        /* Main Content */
+        main {
+            padding: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Editor Tool Section */
+        #editor-tool {
+            background-color: #fff;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        #editor-tool h2 {
+            margin-top: 0;
+            font-size: 2rem;
+            color: #4CAF50;
+        }
+
+        #editor-tool input, #editor-tool textarea, #editor-tool button {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        #editor-tool textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        #editor-tool input:focus, #editor-tool textarea:focus {
+            border-color: #4CAF50;
+            outline: none;
+        }
+
+        #editor-tool button {
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        #editor-tool button:hover {
+            background-color: #45a049;
+        }
+
+        #output-container {
+            margin-top: 20px;
+            text-align: center;
+            display: none;
+        }
+
+        #output-link {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        #output-link:hover {
+            background-color: #45a049;
+        }
+
+        /* Ad Space Section */
+        #ad-space {
+            margin-top: 30px;
+            text-align: center;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        #ad-space h3 {
+            margin-top: 0;
+            color: #4CAF50;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 15px;
+            margin-top: 30px;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 600px) {
+            header h1 {
+                font-size: 2rem;
+            }
+
+            #editor-tool h2 {
+                font-size: 1.5rem;
+            }
+
+            #editor-tool input, #editor-tool textarea, #editor-tool button {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <h1>Online PDF Editor Tool</h1>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Editor Tool Section -->
+        <section id="editor-tool">
+            <h2>Edit Your PDF</h2>
+            <input type="file" id="pdf-input" accept="application/pdf">
+            <label for="text-input">Add Text:</label>
+            <textarea id="text-input" placeholder="Enter text to add to your PDF"></textarea>
+            <button id="edit-btn">Edit PDF</button>
+            <div id="output-container">
+                <a id="output-link" href="" download="edited-pdf.pdf">Download Edited PDF</a>
+            </div>
+        </section>
+
+        <!-- Ad Space -->
+        <section id="ad-space">
+            <h3>Advertisement</h3>
+            <!-- Google AdSense Ad Unit -->
+            <ins class="adsbygoogle"
+               style="display:block"
+               data-ad-format="fluid"
+               data-ad-layout-key="-6t+ed+2i-1n-4w"
+               data-ad-client="ca-pub-4833180960471225"
+               data-ad-slot="7409289569"></ins>
+          <script>
+               (adsbygoogle = window.adsbygoogle || []).push({});
+          </script>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Online PDF Editor Tool. All rights reserved. Made by Gaurav Patel</p>
+    </footer>
+
+    <script>
+        // JavaScript Functionality (Mock Editing)
+        document.getElementById('edit-btn').addEventListener('click', function() {
+            const fileInput = document.getElementById('pdf-input');
+            const textInput = document.getElementById('text-input');
+            const outputLink = document.getElementById('output-link');
+            const outputContainer = document.getElementById('output-container');
+
+            if (fileInput.files.length === 0) {
+                alert('Please select a PDF file to edit.');
+                return;
+            }
+
+            if (textInput.value.trim() === "") {
+                alert('Please enter some text to add to the PDF.');
+                return;
+            }
+
+            const file = fileInput.files[0];
+
+            // Mock editing (for demonstration purposes)
+            // In a real-world scenario, you would upload the file to a server for editing.
+            const editedFileUrl = URL.createObjectURL(file); // Replace with actual editing logic
+            outputLink.href = editedFileUrl;
+            outputContainer.style.display = 'block';
+
+            alert('PDF edited successfully! Click "Download Edited PDF" to save it.');
+        });
+    </script>
+</body>
+</html>
