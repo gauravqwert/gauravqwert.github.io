@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Edit PDF files online. Add text, images, and annotations to your PDFs. Fully responsive and easy to use.">
-    <meta name="keywords" content="PDF editor, edit PDF, add text to PDF, online PDF tools">
+    <meta name="description" content="Merge multiple PDF files into one online. Fully responsive and easy to use.">
+    <meta name="keywords" content="PDF merge, merge PDF, combine PDF, online PDF tools">
     <meta name="author" content="Gaurav Patel">
     <meta name="google-adsense-account" content="ca-pub-4833180960471225">
-    <title>Online PDF Editor Tool</title>
+    <title>Online PDF Merge Tool</title>
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <!-- Font Awesome Icons -->
@@ -52,8 +52,8 @@
             margin: 0 auto;
         }
 
-        /* Editor Tool Section */
-        #editor-tool {
+        /* Merge Tool Section */
+        #merge-tool {
             background-color: #fff;
             padding: 25px;
             border-radius: 10px;
@@ -61,13 +61,13 @@
             margin-bottom: 20px;
         }
 
-        #editor-tool h2 {
+        #merge-tool h2 {
             margin-top: 0;
             font-size: 2rem;
             color: #4CAF50;
         }
 
-        #editor-tool input, #editor-tool textarea, #editor-tool button {
+        #merge-tool input, #merge-tool button {
             width: 100%;
             padding: 12px;
             margin-bottom: 15px;
@@ -77,17 +77,12 @@
             transition: border-color 0.3s ease;
         }
 
-        #editor-tool textarea {
-            resize: vertical;
-            min-height: 100px;
-        }
-
-        #editor-tool input:focus, #editor-tool textarea:focus {
+        #merge-tool input:focus {
             border-color: #4CAF50;
             outline: none;
         }
 
-        #editor-tool button {
+        #merge-tool button {
             background-color: #4CAF50;
             color: #fff;
             border: none;
@@ -96,7 +91,7 @@
             transition: background-color 0.3s ease;
         }
 
-        #editor-tool button:hover {
+        #merge-tool button:hover {
             background-color: #45a049;
         }
 
@@ -157,11 +152,11 @@
                 font-size: 2rem;
             }
 
-            #editor-tool h2 {
+            #merge-tool h2 {
                 font-size: 1.5rem;
             }
 
-            #editor-tool input, #editor-tool textarea, #editor-tool button {
+            #merge-tool input, #merge-tool button {
                 font-size: 0.9rem;
             }
         }
@@ -170,73 +165,80 @@
 <body>
     <!-- Header -->
     <header>
-        <h1>Online PDF Editor Tool</h1>
+        <h1>Online PDF Merge Tool</h1>
     </header>
 
     <!-- Main Content -->
     <main>
-        <!-- Editor Tool Section -->
-        <section id="editor-tool">
-            <h2>Edit Your PDF</h2>
-            <input type="file" id="pdf-input" accept="application/pdf">
-            <label for="text-input">Add Text:</label>
-            <textarea id="text-input" placeholder="Enter text to add to your PDF"></textarea>
-            <button id="edit-btn">Edit PDF</button>
+        <!-- Merge Tool Section -->
+        <section id="merge-tool">
+            <h2>Merge Your PDFs</h2>
+            <input type="file" id="pdf-input" accept="application/pdf" multiple>
+            <button id="merge-btn">Merge PDFs</button>
             <div id="output-container">
-                <a id="output-link" href="" download="edited-pdf.pdf">Download Edited PDF</a>
+                <a id="output-link" href="" download="merged-pdf.pdf">Download Merged PDF</a>
             </div>
         </section>
 
         <!-- Ad Space -->
-           <!-- Ad Space -->
-     <section id="ad-space">
+        <section id="ad-space">
             <h3>Advertisement</h3>
             <!-- Google AdSense Ad Unit -->
-        <ins class="adsbygoogle"
-     style="display:block; text-align:center;"
-     data-ad-layout="in-article"
-     data-ad-format="fluid"
-     data-ad-client="ca-pub-4833180960471225"
-     data-ad-slot="2708730878"></ins>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
-        </section> 
+            <ins class="adsbygoogle"
+                 style="display:block; text-align:center;"
+                 data-ad-layout="in-article"
+                 data-ad-format="fluid"
+                 data-ad-client="ca-pub-4833180960471225"
+                 data-ad-slot="2708730878"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </section>
     </main>
 
     <!-- Footer -->
     <footer>
-        <p>&copy; 2025 Online PDF Editor Tool. All rights reserved. Made by Gaurav Patel</p>
+        <p>&copy; 2025 Online PDF Merge Tool. All rights reserved. Made by Gaurav Patel</p>
     </footer>
 
     <script>
-        // JavaScript Functionality (Mock Editing)
-        document.getElementById('edit-btn').addEventListener('click', function() {
+        // JavaScript Functionality for PDF Merging
+        document.getElementById('merge-btn').addEventListener('click', async function () {
             const fileInput = document.getElementById('pdf-input');
-            const textInput = document.getElementById('text-input');
             const outputLink = document.getElementById('output-link');
             const outputContainer = document.getElementById('output-container');
 
-            if (fileInput.files.length === 0) {
-                alert('Please select a PDF file to edit.');
+            if (fileInput.files.length < 2) {
+                alert('Please select at least two PDF files to merge.');
                 return;
             }
 
-            if (textInput.value.trim() === "") {
-                alert('Please enter some text to add to the PDF.');
-                return;
+            try {
+                const { PDFDocument } = PDFLib;
+                const mergedPdf = await PDFDocument.create();
+
+                for (let file of fileInput.files) {
+                    const arrayBuffer = await file.arrayBuffer();
+                    const pdf = await PDFDocument.load(arrayBuffer);
+                    const copiedPages = await mergedPdf.copyPages(pdf, pdf.getPageIndices());
+                    copiedPages.forEach(page => mergedPdf.addPage(page));
+                }
+
+                const mergedPdfFile = await mergedPdf.save();
+                const mergedBlob = new Blob([mergedPdfFile], { type: 'application/pdf' });
+                const mergedFileUrl = URL.createObjectURL(mergedBlob);
+
+                outputLink.href = mergedFileUrl;
+                outputContainer.style.display = 'block';
+                outputLink.download = 'merged-pdf.pdf';
+
+                alert('PDFs merged successfully! Click "Download Merged PDF" to save it.');
+            } catch (error) {
+                alert('An error occurred while merging PDFs. Please try again.');
+                console.error(error);
             }
-
-            const file = fileInput.files[0];
-
-            // Mock editing (for demonstration purposes)
-            // In a real-world scenario, you would upload the file to a server for editing.
-            const editedFileUrl = URL.createObjectURL(file); // Replace with actual editing logic
-            outputLink.href = editedFileUrl;
-            outputContainer.style.display = 'block';
-
-            alert('PDF edited successfully! Click "Download Edited PDF" to save it.');
         });
     </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.17.1/pdf-lib.min.js"></script>
 </body>
 </html>
